@@ -2,7 +2,8 @@
 
 # proj
 
-proj is a (short description) built with [Python][0] using the [Django Web Framework][1].
+CCU is a software application built with 
+[Python][0] using the [Django Web Framework][1].
 
 This project has the following basic apps:
 
