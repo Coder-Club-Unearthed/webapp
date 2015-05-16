@@ -10,7 +10,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.2 (F:\Anaconda\envs\webservers3\python.exe)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.3 (~/anaconda/envs/unearthed/bin/python)" project-jdk-type="Python SDK" />
   <component name="UnicodeBrowser">
     <option name="fontName" value="Liberation Mono" />
   </component>
