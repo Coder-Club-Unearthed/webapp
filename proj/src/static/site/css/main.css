@@ -2,11 +2,19 @@
 
 html, body{
     height:100%;		/* For full height images */
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300; 
+	background-image: url("../img/map.jpg");
+	
 }
+
 
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+.navbar-brand {
+font-weight: 300; 
 }
 
 .footer {
@@ -56,6 +64,8 @@ body>.navbar-transparent {
 .navbar-brand > img {
     float: left;
     margin-right: 10px;
+	width:35px;
+	
 }
 
 .btn {
@@ -174,6 +184,66 @@ body>.navbar-transparent {
   font-size: 16px;
 }
 
+.timeline-button {
+ text-decoration: none;
+ padding: 1em 1.5em;
+ color: black;
+ background-color: #9b9b9b
+;
+ border-radius: 2em;
+ margin-right:2em;
+}.timeline-button span {
+ padding-right: 0.5em;
+}.timeline-button:hover {
+ background-color: #8ED1DD;
+text-decoration:none;
+
+}.timeline-button-active {
+ background-color: #6ACFE1;
+ text-decoration:none;
+}
+
+
+
 .form-box form .form-control:focus {
   z-index: 2;
+}
+
+.time_line {
+position: absolute;
+top: 40px;
+left: 35px;
+z-index: 90;
+background-color: #3e4144;
+height: 2px;
+width: 360px;
+}
+
+.side_bar-heading {
+color: #3e4144;
+font-weight: 600;
+opacity: 0.5;
+/*text-align:center; */
+text-transform: uppercase;
+
+}
+
+.side_bar-top-div {
+background-color: #6ACFE1;
+}
+
+.side_bar-bottom-div {
+background-color: white;
+}
+
+.time-selector {
+position:absolute;
+top: 30px;
+left: 30px;
+z-index: 100;
+width:500px;
+}
+
+.side_bar {
+height:100%;
 }
