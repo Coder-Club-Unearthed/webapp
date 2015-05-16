@@ -8,6 +8,8 @@
     
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="../../src/static/site/js/geostockpiles.js"></script>
+    <script src="../../src/static/site/js/zonelayers.js"></script>
     <style>
         #map { 
             height: 360px;
@@ -25,60 +27,19 @@
             font-weight:bold; color:red;
         }
     </style>
-    <script>
-    function clickableGrid( rows, cols, callback ){
-      var i=0;
-      var grid = document.createElement('table');
-      grid.className = 'grid';
-      for (var r=0;r<rows;++r){
-        var tr = grid.appendChild(document.createElement('tr'));
-        for (var c=0;c<cols;++c){
-          var cell = tr.appendChild(document.createElement('td'));
-          cell.className = "cell"
-          cell.id = r.toString().concat("_", c.toString())
-          cell.innerHTML = ++i;
-          cell.addEventListener('click',(function(el,r,c,i){
-            return function(){ callback(el,r,c,i); }
-           })(cell,r,c,i),false);
-        }
-      }
-      return grid;
-    }
-    </script>
 </head>
 <body>
     <div id="map"></div>
+    <div id="layertop" style="float: left;"></div>
+    <div id="layermid" style="float: left;"></div>
+    <div id="layerbot"></div>
+    <div style="float: clear all;"></div>
     <script>
-        var map = L.map('map').setView([51.505, -0.09], 13);
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18,
-            // id: 'cjrh.bbcd18d4',
-            id: 'mapbox.dark',
-            accessToken: 'pk.eyJ1IjoiY2pyaCIsImEiOiJDcEhBLS1VIn0.0if7MOAtSb23XP_-1h9VjQ'
-        }).addTo(map);
-        var polygon = L.polygon([
-            [51.509, -0.08],
-            [51.503, -0.06],
-            [51.51, -0.047],
-            [51.509, -0.047]
-        ]).addTo(map);
-        var bounds = [[54.559322, -5.767822], [56.1210604, -3.021240]];
-        window.myrect = L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
-        map.fitBounds(bounds);
-    
-        var lastClicked;
-        var grid = clickableGrid(10,10,function(el,row,col,i){
-            console.log("You clicked on element:",el);
-            console.log("You clicked on row:",row);
-            console.log("You clicked on col:",col);
-            console.log("You clicked on item #:",i);
-
-            el.className='clicked';
-            if (lastClicked) lastClicked.className='';
-            lastClicked = el;
-        });
-        document.body.appendChild(grid);
+        addMap();
+        var grid_top = makeGrid("layertop");
+        var grid_mid = makeGrid("layermid");
+        var grid_bot = makeGrid("layerbot");
+        //document.body.appendChild(grid);
         $('<p />', {id:'output'}).text("blah").appendTo(document.body);
     </script>
     <script>
