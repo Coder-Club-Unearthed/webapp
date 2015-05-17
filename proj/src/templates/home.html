@@ -5,6 +5,10 @@
 
 {% block title %}{{ block.super }}Home{% endblock %}
 
+{% block extrahead %}
+<script src="{% static 'site/js/site.js' %}"></script>    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+{% endblock extrahead %}
+
 {% block description %}Coal Stockpile Visualization and Monitoring{% endblock description %}
 
 {% block navbar-left %}
@@ -27,7 +31,7 @@
       </div> <!-- end timeline button row -->
       
       <div class="row">
-        
+
         <!-- Map code here -->
 
       </div>
@@ -39,6 +43,6 @@
 {% endblock container %}
 
 {% block scripts %}
-<script src="{% static 'site/js/site.js' %}"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 {% endblock scripts %}
 

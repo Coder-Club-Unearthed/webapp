@@ -14,6 +14,13 @@ html, body{
   text-align: center;
 }
 
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 65px;
+}
 
 .footer {
   padding-top: 40px;
@@ -182,7 +189,7 @@ html, body{
 
 .time-selector {
 position:absolute;
-top: 100px;
+top: 30px;
 left: 30px;
 z-index: 100;
 width:500px;
@@ -195,7 +202,7 @@ width:500px;
  background-color: #9b9b9b
 ;
  border-radius: 2em;
- margin-right:2em;
+ margin:2em;
 }
 
 .timeline-button span {
@@ -215,7 +222,7 @@ width:500px;
 
 .time_line {
 position: absolute;
-top: 110px;
+top: 40px;
 left: 35px;
 z-index: 90;
 background-color: #3e4144;
@@ -227,8 +234,6 @@ width: 360px;
 .form-box form .form-control:focus {
   z-index: 2;
 }
-
-
 
 .side_bar-heading {
 color: #3e4144;
@@ -247,8 +252,14 @@ background-color: #6ACFE1;
 background-color: white;
 }
 
-
-
 .side_bar {
 height:100%;
+}
+
+.table-container {
+  position: relative;
+  top: 100px;
+  display: inline-table;
+  width: 20%;
+  margin: 3em;
 }
