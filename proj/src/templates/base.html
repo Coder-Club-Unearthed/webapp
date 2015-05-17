@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block description %}{% endblock description %}">
     <meta name="author" content="Stockpilr">
-    <link rel="shortcut icon" href="{% static 'site/img/logo.png' %}">
+    <link rel="shortcut icon" href="{% static 'site/ico/favicon.png' %}">
 
     <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
 
@@ -59,8 +59,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<!--   <script src="{% static 'site/js/geostockpiles.js' %}"></script>
-    <script src="{% static 'site/js/zonelayers.js' %}"></script>-->
     {% block scripts %}
     {% endblock scripts %}
   </body>

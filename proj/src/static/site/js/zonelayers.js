@@ -32,3 +32,43 @@ function makeGrid(id) {
     document.getElementById(id).appendChild(grid);
     return grid;
 }
+
+
+function colorSet(value) {
+    var col = "#0f0";
+    if (value > 0.8) {
+        col = "#0f0";
+    } else if (value > 0.6) {
+        col = "#0b0";
+    } else if (value > 0.4) {
+        col = "#262";
+    } else if (value > 0.2) {
+        col = "#800";
+    } else {
+        col = "#f00";
+    }
+    return col
+}
+
+
+function setZoneColor(age) {
+    // gridlevel is 'top' or 'mid' or 'bot'
+    // age is 'new' or 'sixmonth' or 'oneyear'
+    // cellid is r_c
+    $("#top td").each(function () {
+        var value = zonedata["top"][age][this.id];
+        var colorvalue = colorSet(value);
+        this.style.backgroundColor = colorvalue;
+    });
+    $("#mid td").each(function () {
+        var value = zonedata["mid"][age][this.id];
+        var colorvalue = colorSet(value);
+        this.style.backgroundColor = colorvalue;
+    });
+    $("#bot td").each(function () {
+        var value = zonedata["bot"][age][this.id];
+        var colorvalue = colorSet(value);
+        this.style.backgroundColor = colorvalue;
+    });
+}
+
