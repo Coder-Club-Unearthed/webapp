@@ -7,7 +7,7 @@ function clickableGrid( rows, cols, callback, pid ) {
     for (var c=0;c<cols;++c){
       var cell = tr.appendChild(document.createElement('td'));
       cell.className = "cell"
-      cell.id = r.toString().concat("_", c.toString(), pid)
+      cell.id = r.toString().concat("_", c.toString())
       cell.innerHTML = ++i;
       cell.addEventListener('click',(function(el,r,c,i){
         return function(){ callback(el,r,c,i); }
