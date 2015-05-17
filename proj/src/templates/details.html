@@ -13,9 +13,9 @@
 
 
 {% block container %}
-<div class="container-fluid">
+<div class="container-fluid details-container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-9">
       
       <div class="row">
         <div class="time-selector"> 
@@ -27,18 +27,60 @@
       </div> <!-- end timeline button row -->
       
       <div class="row">
-        
-        <!-- Map code here -->
-
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="table-container" id="layertop"></div>
+            <div class="table-container" id="layermid"></div>
+            <div class="table-container" id="layerbot"></div>
+          </div>
+        </div>
       </div>
 
     </div>
+    <div class="col-sm-3 side_bar" style="background-color:white;">
+      <div class="row">
+        <div class="side_bar-top-div col-sm-12" >
+          <h3 class="side_bar-heading"> Zone</h3> 
+          <p id="zone-id"> Zone A285 </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="side_bar-bottom-div col-sm-12" >
+          <h3 class="side_bar-heading"> Age</h3> 
+          <p id='zone-age'> 5</p>
+          
+          <h3 class="side_bar-heading"> Quality</h3> 
+          <p id='zone-quality'> 80%</p>
+          
+          <h3 class="side_bar-heading"> Quantity</h3> 
+          <p id='zone-quantity'> 300,000 Tonnes</p>
+          
+          <h3 class="side_bar-heading">Location</h3> 
+          <p id='zone-location'> -127.032, 53.43 </p>
+          
+          <h3 class="side_bar-heading"> No of Dumps</h3> 
+          <p id='zone-number-of-dumps'> 324</p>
+          
+          <h3 class="side_bar-heading"> No of Collections</h3> 
+          <p id='zone-number-of-collections'> 53</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div><!-- /.container -->
 
 {% endblock container %}
 
 {% block scripts %}
+<script src="{% static 'site/js/zonelayers.js' %}"></script>
 <script src="{% static 'site/js/site.js' %}"></script>
+<script>
+    var grid_top = makeGrid("layertop");
+    var grid_mid = makeGrid("layermid");
+    var grid_bot = makeGrid("layerbot");
+    //document.body.appendChild(grid);
+    $('<p />', {id:'output'}).text("blah").appendTo(document.body);
+</script>
 {% endblock scripts %}
 
