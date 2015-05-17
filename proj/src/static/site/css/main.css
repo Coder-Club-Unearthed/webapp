@@ -275,6 +275,25 @@ background-color: white;
 
 /*Map*/
 
+.site-locations {
+  position: absolute;
+  top: 145px;
+  left: 60px;
+  z-index: 1000;
+}
+
+.site-locations a {
+  color: #000;
+  font-size: 1.3em;
+}
+
+.site-locations a:hover {
+  text-decoration: none;
+}
+
+.site-locations .btn {
+  border-width: 0;
+}
 
 #map { 
     height: 760px;

@@ -32,7 +32,20 @@
       </div> <!-- end timeline button row -->
       
       <div class="row">
+        <div  class="site-locations btn-group-vertical" data-toggle="buttons">
+      
+          <label class="btn btn-info"><a href="#" onclick="goloc1();return false;">Broadmeadows</a></label>
+          
+          <label class="btn btn-info"> <a href="#" onclick="goloc2();return false;">Blackmeadow</a></label>
+          
+          <label class="btn btn-info"><a href="#" onclick="goloc3();return false;">Goonyella</a></label>
+          
+          <label class="btn btn-info"> <a href="#" onclick="goloc4();return false;">Norwich Park</a></label>
 
+          
+          <label class="btn btn-info"><a href="#" onclick="goloc6();return false;">Saraji</a></label>
+       
+        </div>
         <div id="map"></div>
 
       </div>
@@ -47,6 +60,31 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     {# <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> #}
     <script src="{% static 'site/js/geostockpiles.js' %}"></script>
+    <script>
+          function goloc1() {
+            map.setView([-21.79659234, 147.94955492], 14);
+          }
+      
+       function goloc2() {
+            map.setView([-23.71010583, 147.5493], 14);
+          }
+      
+       function goloc3() {
+            map.setView([-21.75635095, 147.94496298], 14);
+          }
+      
+      function goloc4() {
+            map.setView([-22.75484721, 148.46175492], 14);
+          }
+      
+    /*  function goloc5() {
+            map.setView([-21.743056, 148.29], 14);
+          } */
+      
+      function goloc6() {
+            map.setView([-22.38190471, 148.27581882], 14);
+          }
+    </script>
     <script>
     var map = addMap();
   
