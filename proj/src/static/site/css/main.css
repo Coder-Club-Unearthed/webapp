@@ -298,3 +298,11 @@ background-color: white;
 #map { 
     height: 760px;
 }
+
+.details-link {
+    color: #fff;
+    text-decoration:none;
+    position:absolute;
+    right:0;
+    padding: 0.5em;
+}

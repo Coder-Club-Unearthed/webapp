@@ -41,6 +41,7 @@
               {% block navbar-brand %}
                 <img src="{% static 'site/img/logo.png' %}" alt="logo">
                 {% include "_brandname.html" %}
+                <a class="details-link" href="{% url 'details' %}">Details</a>
               {% endblock %}
             </a>
           </div>
