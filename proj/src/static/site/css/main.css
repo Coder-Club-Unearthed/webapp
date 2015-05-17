@@ -300,9 +300,11 @@ background-color: white;
 }
 
 .details-link {
-    color: #fff;
-    text-decoration:none;
-    position:absolute;
-    right:0;
-    padding: 0.5em;
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  padding: 0.6em;
+  margin-right: 1.5em;
+  font-size: 1.3em;
 }
