@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Site Locations{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="about" %}
+{% endblock %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+    <style>
+        #map { 
+            height: 360px;
+        }
+    </style>
+{% endblock extrahead %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+
+<div id="sec3">
+  <div class="container">
+    <div class="row voffset6">
+      <div id="map-outer" class="col-md-12">
+        <div id="address" class="col-md-4">
+          <h2>Stockpile Locations</h2>
+          <script>
+          function goloc1() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+		  
+		   function goloc2() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+		  
+		   function goloc3() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+		  
+		  function goloc4() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+		  
+		  function goloc5() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+		  
+		  function goloc6() {
+            map.setView([-21.743056, 148.29], 14);
+          }
+          </script>
+          <ul>
+		  
+				<li><a href="#" onclick="goloc1();return false;">Broadmeadows</a> Location: Moranbah, QLD
+              
+              Coal-Type:Hard Coking Coal	 Mine-type:Underground </li>
+			  
+              <!--<li>Broadmeadows	QLD	Moranbah	BMA	
+              <a href="#" onclick="goloc();return false;">21°44′35″S 147°58′15″E</a>
+              Hard Coking Coal	4	?	?	Underground</li> -->
+			  
+			  <li> <a href="#" onclick="goloc2();return false;">Blackmeadow</a>	Location: Blackwater, Qld Coal-Type: Thermal/Coking	Mine-type: Open Cut</li>
+              <!--<li>Blackwater	QLD	Blackwater	BMA	23°42′36″S 147°33′00″E	Thermal/Coking	13	?	?	Open Cut</li> -->
+			  
+			  <li><a href="#" onclick="goloc3();return false;">Goonyella</a>	Location: Moranbah, QLD	Coal-Type: Hard Coking Coal	Mine-Type:Open Cut/Underground</li>
+             <!-- <li>Goonyella/Riverside	QLD	Moranbah	BMA	21°43′48″S 147°58′44″E	Hard Coking Coal	11	?	?	Open Cut/Underground</li> -->
+			  
+			  <li> <a href="#" onclick="goloc4();return false;">Norwich Park</a>Location: Dysart, QLD	Coal-Type: Soft Coking Coal Mine-Type: Open Cut</li>
+             <!-- <li>Norwich Park	QLD	Dysart	BMA	22°46′48″S 148°28′48″E	Soft Coking Coal	6	all	?	Open Cut</li> -->
+			 
+             <li><a href="#" onclick="goloc5();return false;">Peak Downs</a>Location:Moranbah, Qld,	Coal-Type: Hard Coking Coal	Mine-Type:Open Cut</li>
+			<!-- <li>Peak Downs	QLD	Moranbah	BMA	22°14′13″S 148°00′43″E	Hard Coking Coal	13	all	?	Open Cut</li> -->
+			  
+			  <li><a href="#" onclick="goloc6();return false;">Saraji</a>Location:Dysart, Qld, Coal-Type: Hard Coking Coal Mine-Type: Open Cut</li>
+             <!-- <li>Saraji	QLD	Dysart	BMA	22°21′43″S 148°17′24″E	Hard Coking Coal	7.5	all	?	Open Cut</li> -->
+			 
+          </ul>
+        </div>
+        <div id="map"></div>
+        <div id="map-container" class="col-md-8"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock container %}
+
+{% block scripts %}
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    {# <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> #}
+    <script src="{% static 'site/js/geostockpiles.js' %}"></script>
+    <script>
+    var map = addMap();
+    {# function goloc() { #}
+    {#   map.setView([-21.743056, 73.984], 14); #}
+    {# } #}
+    </script>
+{% endblock scripts %}

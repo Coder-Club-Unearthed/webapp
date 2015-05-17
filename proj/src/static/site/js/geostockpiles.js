@@ -16,4 +16,5 @@ function addMap() {
     var bounds = [[54.559322, -5.767822], [56.1210604, -3.021240]];
     window.myrect = L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
     map.fitBounds(bounds);
+    return map;
 }
