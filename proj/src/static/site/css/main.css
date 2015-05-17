@@ -271,3 +271,11 @@ background-color: white;
   width: 20%;
   margin: 1em 2em 1em 4em;
 }
+
+
+/*Map*/
+
+
+#map { 
+    height: 760px;
+}

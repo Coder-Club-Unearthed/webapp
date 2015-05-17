@@ -6,7 +6,8 @@
 {% block title %}{{ block.super }}Home{% endblock %}
 
 {% block extrahead %}
-<script src="{% static 'site/js/site.js' %}"></script>    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+<script src="{% static 'site/js/site.js' %}"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
 {% endblock extrahead %}
 
 {% block description %}Coal Stockpile Visualization and Monitoring{% endblock description %}
@@ -32,7 +33,7 @@
       
       <div class="row">
 
-        <!-- Map code here -->
+        <div id="map"></div>
 
       </div>
 
@@ -43,6 +44,34 @@
 {% endblock container %}
 
 {% block scripts %}
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    {# <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> #}
+    <script src="{% static 'site/js/geostockpiles.js' %}"></script>
+    <script>
+    var map = addMap();
+  
+    var FeatureCollection ={"type": "FeatureCollection", "features": [{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[147.549353,-23.710106],[147.54953,-23.71014],[147.549597,-23.709873],[147.549447,-23.709828],[147.549353,-23.710106]]]]},"properties":{"cartodb_id":2,"name":"Blackwater","description":"Blackwater","created_at":"2015-05-17T00:08:16Z","updated_at":"2015-05-17T00:09:22Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[147.549466,-23.709782],[147.549611,-23.709816],[147.549689,-23.709605],[147.54953,-23.709566],[147.549466,-23.709782]]]]},"properties":{"cartodb_id":3,"name":"Blackwater","description":"Blackwater","created_at":"2015-05-17T00:08:34Z","updated_at":"2015-05-17T00:09:29Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[147.949555,-21.796592],[147.954565,-21.797285],[147.954705,-21.797439],[147.954737,-21.79849],[147.954699,-21.799182],[147.954673,-21.799606],[147.95471,-21.79983],[147.954694,-21.800258],[147.954699,-21.800527],[147.95463,-21.800677],[147.954533,-21.800761],[147.954265,-21.800786],[147.953825,-21.800776],[147.953739,-21.800791],[147.953176,-21.800806],[147.952961,-21.800811],[147.952677,-21.800856],[147.952146,-21.800836],[147.951218,-21.800906],[147.950596,-21.800931],[147.950102,-21.800911],[147.949855,-21.800731],[147.949651,-21.800378],[147.94948,-21.800024],[147.94926,-21.798595],[147.949276,-21.798112],[147.949271,-21.796797],[147.949555,-21.796592]]]]},"properties":{"cartodb_id":1,"name":"Broadmeadows","description":"Broadmeadows","created_at":"2015-05-16T23:58:04Z","updated_at":"2015-05-17T00:09:16Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[148.461755,-22.754847],[148.462206,-22.755565],[148.462173,-22.756272],[148.461878,-22.756638],[148.461712,-22.756727],[148.461288,-22.756613],[148.460462,-22.756396],[148.45999,-22.756039],[148.459775,-22.755233],[148.459931,-22.754882],[148.460977,-22.754664],[148.461755,-22.754847]]]]},"properties":{"cartodb_id":5,"name":"Norwich Park","description":"Norwich Park","created_at":"2015-05-17T00:14:41Z","updated_at":"2015-05-17T00:15:04Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[147.944963,-21.756351],[147.944984,-21.757846],[147.944995,-21.758703],[147.944963,-21.75948],[147.944845,-21.759868],[147.94433,-21.759809],[147.943912,-21.75941],[147.943343,-21.759261],[147.942839,-21.759041],[147.942764,-21.758523],[147.942957,-21.757337],[147.943279,-21.75672],[147.943504,-21.756381],[147.944137,-21.756301],[147.944963,-21.756351]]]]},"properties":{"cartodb_id":4,"name":"Goonyella/Riverside","description":"Goonyella/Riverside","created_at":"2015-05-17T00:11:56Z","updated_at":"2015-05-17T00:12:26Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[147.520552,-22.689414],[147.520782,-22.689854],[147.521099,-22.689933],[147.521324,-22.68981],[147.521453,-22.689473],[147.521592,-22.689211],[147.521512,-22.688998],[147.521367,-22.688963],[147.520552,-22.689414]]]]},"properties":{"cartodb_id":7,"name":null,"description":null,"created_at":"2015-05-17T00:22:52Z","updated_at":"2015-05-17T00:22:52Z"}},{"type":"Feature","geometry":{"type":"MultiPolygon","coordinates":[[[[148.275819,-22.381905],[148.277428,-22.385139],[148.282106,-22.38379],[148.281591,-22.382163],[148.282578,-22.381726],[148.282621,-22.380099],[148.28202,-22.379702],[148.275819,-22.381905]]]]},"properties":{"cartodb_id":6,"name":"Saraji","description":"Saraji","created_at":"2015-05-17T00:19:34Z","updated_at":"2015-05-17T00:34:35Z"}}]}
+      
+  var geoJsonLayer = L.geoJson(FeatureCollection, {
+    onEachFeature: function (feature, layer) {
+        // Check if feature is a polygon
+        if (feature.geometry.type === 'MultiPolygon') {
+            // Don't stroke and do opaque fill
+            layer.setStyle({
+                'weight': 0,
+                'fillOpacity': 0
+            });
+            // Get bounds of polygon
+            var bounds = layer.getBounds();
+            // Get center of bounds
+            var center = bounds.getCenter();
+            // Use center to put marker on map
+            var marker = L.marker(center).addTo(map);
+        }
+    }
+}).addTo(map);
+  
+  
+    </script>
 {% endblock scripts %}
 
