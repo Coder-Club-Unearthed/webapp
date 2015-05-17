@@ -1,7 +1,7 @@
 function clickableGrid( rows, cols, callback, pid ) {
   var i=0;
   var grid = document.createElement('table');
-  grid.className = 'grid';
+  grid.className = 'zonegrid';
   for (var r=0;r<rows;++r){
     var tr = grid.appendChild(document.createElement('tr'));
     for (var c=0;c<cols;++c){
