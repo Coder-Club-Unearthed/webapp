@@ -23,9 +23,12 @@
       
       <div class="row">
         <div class="time-selector"> 
-          <a class="timeline-button timeline-button-active" href="#"><span class="fa fa-calendar"></span>Now</a> 
-          <a class="timeline-button" href="#"><span class="fa fa-calendar"></span>6 months</a> 
-          <a class="timeline-button" href="#"><span class="fa fa-calendar"></span>1 year</a> 
+            <a class="timeline-button timeline-button-active" href="#" 
+            onclick="setZoneColor('new'); return false;"><span class="fa fa-calendar"></span>Now</a> 
+            <a class="timeline-button" href="#"
+            onclick="setZoneColor('sixmonth'); return false;"><span class="fa fa-calendar"></span>6 months</a> 
+            <a class="timeline-button" href="#"
+            onclick="setZoneColor('oneyear'); return false;"><span class="fa fa-calendar"></span>1 year</a> 
         </div>
         <div class="time_line"></div>
       </div> <!-- end timeline button row -->
@@ -60,7 +63,7 @@
           <p id='zone-quantity'> 300,000 Tonnes</p>
           
           <h3 class="side_bar-heading">Location</h3> 
-          <p id='zone-location'> -127.032, 53.43 </p>
+          <p id='zone-location'>Blackwater BMA</p>
           
           <h3 class="side_bar-heading"> No of Dumps</h3> 
           <p id='zone-number-of-dumps'> 324</p>
