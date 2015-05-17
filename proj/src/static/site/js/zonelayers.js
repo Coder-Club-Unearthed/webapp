@@ -51,24 +51,70 @@ function colorSet(value) {
 }
 
 
+function randage() {
+    var data = ["1 month", "2 months", "6 months", "8 months", "12 months"];
+    return data[Math.floor(Math.random() * data.length)];
+}
+
+function randquantity() {
+    var data = ["100 tons", "200 tons", "300 tons", "400 tons"];
+    return data[Math.floor(Math.random() * data.length)];
+}
+
+function randdumps() {
+    return Math.floor(Math.random() * 20 + 5);
+}
+
+function randcollects() {
+    return Math.floor(Math.random() * 10 + 1);
+}
+
 function setZoneColor(age) {
     // gridlevel is 'top' or 'mid' or 'bot'
     // age is 'new' or 'sixmonth' or 'oneyear'
     // cellid is r_c
+    console.log("called");
+    console.log(zonedata);
+    console.log(age);
     $("#top td").each(function () {
+        console.log(this.id)
         var value = zonedata["top"][age][this.id];
         var colorvalue = colorSet(value);
         this.style.backgroundColor = colorvalue;
+        $(this).hover(function(){
+            var pval =  (value*100).toFixed(0).toString();
+            $("#zone-quality").text(pval.concat("%"));
+            $("#zone-age").text(randage());
+            $("#zone-quantity").text(randquantity());
+            $("#zone-number-of-dumps").text(randdumps());
+            $("#zone-number-of-collections").text(randcollects());
+        });
     });
     $("#mid td").each(function () {
         var value = zonedata["mid"][age][this.id];
         var colorvalue = colorSet(value);
         this.style.backgroundColor = colorvalue;
+        $(this).hover(function(){
+            var pval =  (value*100).toFixed(0).toString();
+            $("#zone-quality").text(pval.concat("%"));
+            $("#zone-age").text(randage());
+            $("#zone-quantity").text(randquantity());
+            $("#zone-number-of-dumps").text(randdumps());
+            $("#zone-number-of-collections").text(randcollects());
+        });
     });
     $("#bot td").each(function () {
         var value = zonedata["bot"][age][this.id];
         var colorvalue = colorSet(value);
         this.style.backgroundColor = colorvalue;
+        $(this).hover(function(){
+            var pval =  (value*100).toFixed(0).toString();
+            $("#zone-quality").text(pval.concat("%"));
+            $("#zone-age").text(randage());
+            $("#zone-quantity").text(randquantity());
+            $("#zone-number-of-dumps").text(randdumps());
+            $("#zone-number-of-collections").text(randcollects());
+        });
     });
 }
 
